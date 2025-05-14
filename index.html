@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함안 투자 5·5·5 프로그램 - 맞춤형 투자 인센티브 패키지</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 네비게이션 헤더 -->
+    <header class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="img/logo.png" alt="함안군 로고" class="h-12 mr-3">
+                    <div>
+                        <h1 class="text-xl font-bold text-blue-800">함안 투자 5·5·5 프로그램</h1>
+                        <p class="text-sm text-gray-600">맞춤형 투자 인센티브 패키지</p>
+                    </div>
+                </div>
+                
+                <!-- 데스크톱 메뉴 -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-blue-800 font-medium hover:text-blue-600 transition">홈</a>
+                    <a href="investment-package.html" class="text-gray-600 font-medium hover:text-blue-600 transition">투자 패키지</a>
+                    <a href="tax-reduction.html" class="text-gray-600 font-medium hover:text-blue-600 transition">세금 감면</a>
+                    <a href="support-benefits.html" class="text-gray-600 font-medium hover:text-blue-600 transition">지원 혜택</a>
+                    <a href="improvement.html" class="text-gray-600 font-medium hover:text-blue-600 transition">개선 방안</a>
+                    <a href="effects.html" class="text-gray-600 font-medium hover:text-blue-600 transition">기대효과</a>
+                    <a href="roadmap.html" class="text-gray-600 font-medium hover:text-blue-600 transition">로드맵</a>
+                    <a href="trend_report.html" class="text-gray-600 font-medium hover:text-blue-600 transition">트렌드 분석</a>
+
+                </nav>
+                
+                <!-- 모바일 메뉴 토글 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 모바일 메뉴 -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
+                <a href="index.html" class="block py-2 text-blue-800 font-medium">홈</a>
+                <a href="investment-package.html" class="block py-2 text-gray-600 font-medium">투자 패키지</a>
+                <a href="tax-reduction.html" class="block py-2 text-gray-600 font-medium">세금 감면</a>
+                <a href="support-benefits.html" class="block py-2 text-gray-600 font-medium">지원 혜택</a>
+                <a href="improvement.html" class="block py-2 text-gray-600 font-medium">개선 방안</a>
+                <a href="effects.html" class="block py-2 text-gray-600 font-medium">기대효과</a>
+                <a href="roadmap.html" class="block py-2 text-gray-600 font-medium">로드맵</a>
+                <a href="trend_report.html" class="block py-2 text-gray-600 font-medium">트렌드 분석</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="pt-24">
+        <!-- 히어로 섹션 -->
+        <section class="bg-gradient-to-r from-blue-800 to-blue-600 text-white py-16">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h2 class="text-4xl font-bold mb-4 fade-in">함안 투자 5·5·5 프로그램</h2>
+                        <p class="text-xl mb-6 fade-in">지역산업 경쟁력 강화를 위한 차별화된 투자 인센티브 패키지</p>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg mb-6 fade-in">
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-yellow-400 mr-2"></i>
+                                    <span>투자 규모별 세금 감면 5단계 패키지</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-yellow-400 mr-2"></i>
+                                    <span>5년간 단계적 세금 감면 혜택</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-yellow-400 mr-2"></i>
+                                    <span>기업 성장에 필요한 5가지 핵심 지원</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex space-x-4 fade-in">
+                            <a href="investment-package.html" class="bg-white text-blue-800 px-6 py-2 rounded-lg font-medium hover:bg-blue-50 transition">자세히 알아보기</a>
+                            <a href="#overview" class="border border-white px-6 py-2 rounded-lg font-medium hover:bg-white hover:bg-opacity-10 transition">프로그램 개요</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                         
+                    </div>
+                    <div class="md:w-1/2 fade-in">
+                        <img src="img/g_haman_future_vision.jpg" alt="함안군 투자 환경 이미지" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 프로그램 개요 섹션 -->
+        <section id="overview" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 section-title fade-in">프로그램 개요</h2>
+                <div class="bg-blue-50 p-6 rounded-lg mb-8 fade-in">
+                    <p class="mb-4 text-lg">
+                        <strong>함안 투자 5·5·5 프로그램</strong>은 지역산업 경쟁력 강화를 위한 적극적 기업 유치 방안으로, 
+                        차별화된 인센티브 패키지를 도입하는 정책입니다. 네이버 데이터랩 검색 트렌드 분석 결과를 바탕으로, 
+                        인센티브에 대한 높은 관심도를 활용한 전략적 접근법으로 설계되었습니다.
+                    </p>
+                    <p class="text-lg">
+                        이 프로그램은 투자 규모별 세금 감면 5단계 체계, 5년간 단계적 감면율 적용, 5가지 핵심 지원 혜택을 
+                        포함하는 통합적 패키지로, 함안군만의 차별화된 기업 유치 전략입니다.
+                    </p>
+                </div>
+                
+                <!-- 핵심 특징 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600 fade-in">
+                        <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="text-xl font-bold mb-3">투자 규모별 5단계 패키지</h3>
+                        <p>투자 규모에 따라 차등화된 5단계 인센티브 체계를 통해 기업의 투자 규모와 특성에 맞는 맞춤형 혜택을 제공합니다.</p>
+                        <a href="investment-package.html" class="text-blue-600 flex items-center mt-4 hover:text-blue-800">
+                            자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-600 fade-in">
+                        <div class="text-green-600 text-4xl mb-4"><i class="fas fa-calendar-alt"></i></div>
+                        <h3 class="text-xl font-bold mb-3">5년간 단계적 세금 감면</h3>
+                        <p>기업의 안정적인 정착과 성장을 위해 5년에 걸쳐 단계적으로 조정되는 세금 감면 혜택으로 장기적 성장을 지원합니다.</p>
+                        <a href="tax-reduction.html" class="text-green-600 flex items-center mt-4 hover:text-green-800">
+                            자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-500 fade-in">
+                        <div class="text-yellow-500 text-4xl mb-4"><i class="fas fa-handshake"></i></div>
+                        <h3 class="text-xl font-bold mb-3">5가지 핵심 지원 혜택</h3>
+                        <p>토지 및 시설, 고용, 교육훈련, 인프라, R&D 등 기업 성장에 필수적인 5가지 영역에서 종합적인 지원을 제공합니다.</p>
+                        <a href="support-benefits.html" class="text-yellow-500 flex items-center mt-4 hover:text-yellow-700">
+                            자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- CTA -->
+                <div class="bg-gradient-to-r from-blue-500 to-blue-700 p-8 rounded-lg text-white text-center fade-in">
+                    <h3 class="text-2xl font-bold mb-4">함안군에 투자하세요</h3>
+                    <p class="mb-6 text-lg">함안 투자 5·5·5 프로그램으로 기업 성장의 새로운 기회를 만들어보세요.</p>
+                    <a href="#contact" class="bg-white text-blue-700 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition inline-block">
+                        문의하기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 현황 및 문제점 섹션 -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 section-title fade-in">함안군 산업 현황 및 과제</h2>
+                
+                <div class="flex flex-col md:flex-row gap-8 mb-12">
+                    <div class="md:w-1/2 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-800">함안군 산업 현황</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-blue-600 mt-1 mr-3"></i>
+                                <p>남해·중부내륙고속도로, 경전선 철도, 국도·지방도 등 우수한 교통망과 김해공항 인접</p>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-industry text-blue-600 mt-1 mr-3"></i>
+                                <p>2,105개 중소기업에서 29,849명의 근로자가 각종 산업 및 생활물자 생산</p>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-building text-blue-600 mt-1 mr-3"></i>
+                                <p>가야·파수·군북·법수·산인농공단지와 칠서지방산업단지 운영</p>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-pie text-blue-600 mt-1 mr-3"></i>
+                                <p>칠서지방산업단지: 약 93만평 규모, 90개 업체 입주, 10,000명 고용 창출</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="md:w-1/2 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-800">당면 과제</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
+                                <h4 class="font-semibold text-red-700">차별화된 인센티브 패키지 부재</h4>
+                                <p class="text-sm">경쟁 지자체와 차별화된 인센티브 전략 필요</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
+                                <h4 class="font-semibold text-red-700">낮은 지역 인지도와 브랜딩 부족</h4>
+                                <p class="text-sm">함안군의 검색 관심도는 경쟁 지자체 대비 현저히 낮은 수준</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
+                                <h4 class="font-semibold text-red-700">지역 특화산업 부재</h4>
+                                <p class="text-sm">창원(기계), 김해(부품소재), 진주(항공) 등과 같은 특화 산업 필요</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
+                                <h4 class="font-semibold text-red-700">기업 지원 인프라 미흡</h4>
+                                <p class="text-sm">산학연 협력 체계와 연구개발 인프라 확충 필요</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 시사점 -->
+                <div class="bg-blue-800 text-white p-6 rounded-lg fade-in">
+                    <h3 class="text-xl font-bold mb-3">주요 시사점</h3>
+                    <p class="mb-4">
+                        네이버 데이터랩 검색 트렌드 분석 결과, 인센티브 관련 검색어(세금, 혜택, 감면, 지원)는 전 기간에 걸쳐 
+                        비교적 높은 관심도(55-100)를 유지하고 있으며, 산업 관련 키워드보다 약 4-5배 높은 관심도를 보였습니다.
+                    </p>
+                    <p>
+                        이는 <strong>기업들이 투자 결정 시 세금 혜택과 지원 정책을 가장 중요하게 고려함</strong>을 보여주며, 
+                        함안군은 이러한 인센티브에 초점을 맞춘 차별화된 기업 유치 전략이 필요합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 개선 방안 요약 섹션 -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 section-title fade-in">개선 방안 요약</h2>
+                
+                <!-- 카드 레이아웃 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <!-- 5·5·5 프로그램 -->
+                    <div class="bg-blue-50 rounded-lg overflow-hidden shadow-md fade-in">
+                        <div class="bg-blue-600 text-white p-4">
+                            <h3 class="text-xl font-bold">함안 투자 5·5·5 프로그램</h3>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                                    <p>투자 규모별 세금 감면 5단계 체계</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                                    <p>5년간 단계적 감면율 적용</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                                    <p>5가지 핵심 지원 혜택 제공</p>
+                                </li>
+                            </ul>
+                            <a href="investment-package.html" class="mt-4 inline-block text-blue-600 hover:text-blue-800">
+                                자세히 보기 →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 지역 브랜딩 -->
+                    <div class="bg-green-50 rounded-lg overflow-hidden shadow-md fade-in">
+                        <div class="bg-green-600 text-white p-4">
+                            <h3 class="text-xl font-bold">그린테크 함안 브랜딩</h3>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                                    <p>친환경 산업 중심 차별화 브랜딩</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                                    <p>계절별 집중 투자 설명회 개최</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                                    <p>물류 허브 포지셔닝 강화</p>
+                                </li>
+                            </ul>
+                            <a href="improvement.html" class="mt-4 inline-block text-green-600 hover:text-green-800">
+                                자세히 보기 →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 원스톱 지원 -->
+                    <div class="bg-purple-50 rounded-lg overflow-hidden shadow-md fade-in">
+                        <div class="bg-purple-600 text-white p-4">
+                            <h3 class="text-xl font-bold">원스톱 기업 유치 지원</h3>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
+                                    <p>기업 투자 전담 TF팀 구성</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
+                                    <p>인허가 간소화 창구 운영</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
+                                    <p>투자-정착 전 과정 밀착 지원</p>
+                                </li>
+                            </ul>
+                            <a href="improvement.html#one-stop" class="mt-4 inline-block text-purple-600 hover:text-purple-800">
+                                자세히 보기 →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 기대효과 미리보기 -->
+                <div class="bg-gray-100 p-6 rounded-lg fade-in">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">기대효과 미리보기</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <div class="text-blue-600 text-3xl font-bold">5,000억</div>
+                            <p class="text-gray-600">5년 내 투자 유치</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <div class="text-blue-600 text-3xl font-bold">5,000+</div>
+                            <p class="text-gray-600">신규 일자리 창출</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <div class="text-blue-600 text-3xl font-bold">20%</div>
+                            <p class="text-gray-600">지역내총생산 증가</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <div class="text-blue-600 text-3xl font-bold">30%+</div>
+                            <p class="text-gray-600">첨단 산업 비중 확대</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="effects.html" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                            상세 기대효과 보기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 실행 로드맵 미리보기 -->
+        <section class="py-16 bg-blue-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 section-title fade-in">실행 로드맵 미리보기</h2>
+                
+                <div class="relative">
+                    <!-- 로드맵 타임라인 -->
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
+                    
+                    <div class="space-y-12 relative">
+                        <!-- 2025년 하반기 -->
+                        <div class="flex flex-col md:flex-row items-center fade-in">
+                            <div class="md:w-1/2 mb-4 md:mb-0 md:pr-8 md:text-right">
+                                <h3 class="text-xl font-bold text-blue-800">2025년 하반기</h3>
+                                <p class="text-gray-600">프로그램 세부 계획 수립 및 행정 기반 마련</p>
+                            </div>
+                            <div class="hidden md:block z-10 rounded-full w-8 h-8 bg-blue-600 border-4 border-blue-200"></div>
+                            <div class="md:w-1/2 md:pl-8">
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <ul class="text-sm space-y-1">
+                                        <li>• "함안 투자 5·5·5 프로그램" 세부 계획 수립</li>
+                                        <li>• 관련 조례 제정 및 예산 확보</li>
+                                        <li>• 기업 유치 전담 TF팀 구성</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2026년 상반기 -->
+                        <div class="flex flex-col md:flex-row items-center fade-in">
+                            <div class="md:w-1/2 mb-4 md:mb-0 md:pr-8 md:text-right order-1 md:order-1">
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <ul class="text-sm space-y-1">
+                                        <li>• "함안 투자 5·5·5 프로그램" 공식 출범</li>
+                                        <li>• "그린테크 함안" 브랜딩 캠페인 시작</li>
+                                        <li>• 원스톱 기업 유치 지원 시스템 구축</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hidden md:block z-10 rounded-full w-8 h-8 bg-blue-600 border-4 border-blue-200 order-2"></div>
+                            <div class="md:w-1/2 md:pl-8 order-1 md:order-3">
+                                <h3 class="text-xl font-bold text-blue-800">2026년 상반기</h3>
+                                <p class="text-gray-600">프로그램 공식 출범 및 브랜딩 캠페인</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2026년 하반기 -->
+                        <div class="flex flex-col md:flex-row items-center fade-in">
+                            <div class="md:w-1/2 mb-4 md:mb-0 md:pr-8 md:text-right">
+                                <h3 class="text-xl font-bold text-blue-800">2026년 하반기</h3>
+                                <p class="text-gray-600">투자 유치 활동 본격화 및 시범 사업 실시</p>
+                            </div>
+                            <div class="hidden md:block z-10 rounded-full w-8 h-8 bg-blue-600 border-4 border-blue-200"></div>
+                            <div class="md:w-1/2 md:pl-8">
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <ul class="text-sm space-y-1">
+                                        <li>• 투자 설명회 집중 개최(가을철 관심도 활용)</li>
+                                        <li>• 주변 도시와의 연계 협력 체계 구축</li>
+                                        <li>• 첫 단계 투자 기업 유치 및 시범 사업 실시</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-8">
+                        <a href="roadmap.html" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                            전체 로드맵 보기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 문의 섹션 -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 section-title fade-in">문의하기</h2>
+                
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2 fade-in">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-blue-800">함안군 기획예산담당관</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-blue-600 mt-1 mr-3"></i>
+                                    <p>(52043) 경상남도 함안군 가야읍 말산로 1 함안군청, 기획예산담당관(기획담당)</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-phone text-blue-600 mt-1 mr-3"></i>
+                                    <p>☎ 055-580-2025</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-envelope text-blue-600 mt-1 mr-3"></i>
+                                    <p>junsugwo@korea.kr (전석우 주무관)</p>
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                                <h4 class="font-bold text-yellow-800 mb-2">함안군 정책 제안 공모</h4>
+                                <p class="text-sm">
+                                    2025년 함안군 정책 제안 공모 접수 중<br>
+                                    기간: 2025. 3. 31.(월) ~ 2025. 5. 15.(목) 18:00까지
+                                </p>
+                                <a href="#" class="text-sm text-blue-600 hover:text-blue-800 mt-2 inline-block">공고문 다운로드</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 fade-in">
+                        <form class="bg-gray-50 p-6 rounded-lg">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">이름</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="company" class="block text-gray-700 mb-2">회사명</label>
+                                <input type="text" id="company" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">이메일</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 mb-2">연락처</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 mb-2">문의 내용</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <input type="checkbox" id="privacy" class="mr-2">
+                                <label for="privacy" class="text-sm text-gray-600">개인정보 수집 및 이용에 동의합니다.</label>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                                문의하기
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <img src="img/logo.png" alt="함안군 로고" class="h-10 mr-3">
+                        <div>
+                            <h3 class="text-lg font-bold">함안군</h3>
+                            <p class="text-xs text-gray-400">함안 투자 5·5·5 프로그램</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        (52043) 경상남도 함안군 가야읍 말산로 1<br>
+                        대표전화: 055-580-2025
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">프로그램 안내</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="investment-package.html" class="hover:text-white">투자 패키지</a></li>
+                            <li><a href="tax-reduction.html" class="hover:text-white">세금 감면</a></li>
+                            <li><a href="support-benefits.html" class="hover:text-white">지원 혜택</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">추가 정보</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="improvement.html" class="hover:text-white">개선 방안</a></li>
+                            <li><a href="effects.html" class="hover:text-white">기대효과</a></li>
+                            <li><a href="roadmap.html" class="hover:text-white">로드맵</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">관련 링크</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="https://www.haman.go.kr" target="_blank" class="hover:text-white">함안군청</a></li>
+                            <li><a href="#" class="hover:text-white">정책 제안 공모</a></li>
+                            <li><a href="#contact" class="hover:text-white">문의하기</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-500 mb-4 md:mb-0">© 2025 함안군. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>

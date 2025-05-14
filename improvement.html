@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추가 개선 방안 - 함안 투자 5·5·5 프로그램</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 네비게이션 헤더 -->
+    <header class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="img/logo.png" alt="함안군 로고" class="h-12 mr-3">
+                    <div>
+                        <h1 class="text-xl font-bold text-blue-800">함안 투자 5·5·5 프로그램</h1>
+                        <p class="text-sm text-gray-600">맞춤형 투자 인센티브 패키지</p>
+                    </div>
+                </div>
+                
+                <!-- 데스크톱 메뉴 -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-600 font-medium hover:text-blue-600 transition">홈</a>
+                    <a href="investment-package.html" class="text-gray-600 font-medium hover:text-blue-600 transition">투자 패키지</a>
+                    <a href="tax-reduction.html" class="text-gray-600 font-medium hover:text-blue-600 transition">세금 감면</a>
+                    <a href="support-benefits.html" class="text-gray-600 font-medium hover:text-blue-600 transition">지원 혜택</a>
+                    <a href="improvement.html" class="text-blue-800 font-medium hover:text-blue-600 transition">개선 방안</a>
+                    <a href="effects.html" class="text-gray-600 font-medium hover:text-blue-600 transition">기대효과</a>
+                    <a href="roadmap.html" class="text-gray-600 font-medium hover:text-blue-600 transition">로드맵</a>
+                    <a href="trend_report.html" class="text-gray-600 font-medium hover:text-blue-600 transition">트렌드 분석</a>
+                </nav>
+                
+                <!-- 모바일 메뉴 토글 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 모바일 메뉴 -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
+                <a href="index.html" class="block py-2 text-gray-600 font-medium">홈</a>
+                <a href="investment-package.html" class="block py-2 text-gray-600 font-medium">투자 패키지</a>
+                <a href="tax-reduction.html" class="block py-2 text-gray-600 font-medium">세금 감면</a>
+                <a href="support-benefits.html" class="block py-2 text-gray-600 font-medium">지원 혜택</a>
+                <a href="improvement.html" class="block py-2 text-blue-800 font-medium">개선 방안</a>
+                <a href="effects.html" class="block py-2 text-gray-600 font-medium">기대효과</a>
+                <a href="roadmap.html" class="block py-2 text-gray-600 font-medium">로드맵</a>
+                <a href="trend_report.html" class="block py-2 text-gray-600 font-medium">트렌드 분석</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="pt-24">
+        <!-- 페이지 헤더 -->
+        <section class="bg-blue-700 text-white py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-4 fade-in">추가 개선 방안</h2>
+                <p class="text-xl mb-6 fade-in">함안 투자 5·5·5 프로그램과 함께 시너지를 창출할 종합적 개선 방안</p>
+                <div class="flex items-center text-sm">
+                    <a href="index.html" class="text-blue-200 hover:text-white">홈</a>
+                    <span class="mx-2">></span>
+                    <span>개선 방안</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 개요 섹션 -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-8 section-title fade-in">개선 방안 개요</h2>
+                
+                <div class="bg-blue-50 p-6 rounded-lg mb-8 fade-in">
+                    <p class="mb-4">
+                        함안 투자 5·5·5 프로그램의 효과를 극대화하고 지역산업 경쟁력을 종합적으로 강화하기 위해서는
+                        추가적인 개선 방안이 필요합니다. 이 페이지에서는 함안군의 투자 유치 활성화를 위한 세 가지 핵심 
+                        개선 방안을 제시합니다.
+                    </p>
+                    <p>
+                        이 개선 방안들은 투자 인센티브 패키지와 함께 시너지를 창출하여 함안군의 산업 생태계를 
+                        더욱 강화하고, 지속가능한 발전을 이끄는 기반이 될 것입니다.
+                    </p>
+                </div>
+                
+                <!-- 3가지 개선 방안 요약 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <!-- 지역 브랜딩 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-600 fade-in">
+                        <div class="bg-green-100 p-2 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                            <i class="fas fa-leaf text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-green-800">그린테크 함안 브랜딩</h3>
+                        <p class="text-gray-600 mb-4">
+                            함안군만의 친환경 산업 중심 차별화된 지역 브랜딩 전략으로 인지도 향상 및 투자 매력도 증대
+                        </p>
+                        <a href="#green-tech" class="text-green-600 hover:text-green-800 flex items-center text-sm font-medium">
+                            자세히 보기 <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- 원스톱 기업 유치 지원 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-purple-600 fade-in">
+                        <div class="bg-purple-100 p-2 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                            <i class="fas fa-tasks text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-purple-800">원스톱 기업 유치 지원</h3>
+                        <p class="text-gray-600 mb-4">
+                            투자 기업을 위한 전담 TF팀 구성 및 행정 간소화로 투자 결정부터 정착까지 전 과정 밀착 지원
+                        </p>
+                        <a href="#one-stop" class="text-purple-600 hover:text-purple-800 flex items-center text-sm font-medium">
+                            자세히 보기 <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- 산업 클러스터 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-500 fade-in">
+                        <div class="bg-yellow-100 p-2 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                            <i class="fas fa-network-wired text-2xl text-yellow-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-yellow-800">융합 산업 클러스터</h3>
+                        <p class="text-gray-600 mb-4">
+                            주변 도시의 특화 산업과 연계한 차별화된 산업 클러스터 조성으로 시너지 창출 및 경쟁력 강화
+                        </p>
+                        <a href="#cluster" class="text-yellow-500 hover:text-yellow-700 flex items-center text-sm font-medium">
+                            자세히 보기 <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 그린테크 함안 브랜딩 섹션 -->
+        <section id="green-tech" class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2 fade-in">
+                        <h2 class="text-2xl font-bold mb-6 section-title text-green-800">그린테크 함안 브랜딩</h2>
+                        <p class="mb-4">
+                            함안군의 낮은 인지도를 극복하고 투자 매력도를 높이기 위해 친환경 산업 중심의 차별화된 지역 브랜딩 
+                            전략을 도입합니다. 이를 통해 함안군의 브랜드 가치를 높이고 투자 유치를 활성화합니다.
+                        </p>
+                        
+                        <div class="space-y-4 mt-6">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-green-800 mb-2 flex items-center">
+                                    <i class="fas fa-bullseye text-green-600 mr-2"></i> 브랜드 전략 수립
+                                </h3>
+                                <p class="text-sm">
+                                    "그린테크 함안(Green-Tech Haman)"이라는 브랜드 아이덴티티를 개발하고, 함안군의 친환경, 
+                                    저탄소 산업에 대한 비전과 가치를 담은 브랜드 스토리 구축
+                                </p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-green-800 mb-2 flex items-center">
+                                    <i class="fas fa-calendar-alt text-green-600 mr-2"></i> 계절별 마케팅 전략
+                                </h3>
+                                <p class="text-sm">
+                                    검색 트렌드 분석 결과, 봄철(3-5월)과 가을철(9-10월)에 검색 관심도가 높아지는 패턴을 
+                                    활용하여 해당 시기에 집중적인 투자 설명회 및 홍보 활동 전개
+                                </p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-green-800 mb-2 flex items-center">
+                                    <i class="fas fa-search text-green-600 mr-2"></i> 디지털 마케팅 강화
+                                </h3>
+                                <p class="text-sm">
+                                    네이버, 구글 등 주요 포털에서 키워드 마케팅을 실시하고, SNS 채널 및 전문 미디어를 
+                                    활용한 온라인 브랜딩 강화
+                                </p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-green-800 mb-2 flex items-center">
+                                    <i class="fas fa-route text-green-600 mr-2"></i> 물류 허브 포지셔닝
+                                </h3>
+                                <p class="text-sm">
+                                    함안군의 지리적 이점(창원, 김해, 진주 중간 위치)을 활용한 물류 중심지로서의 이미지 구축 및 
+                                    산업 연계성 강조
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 fade-in">
+                        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                            <h3 class="text-xl font-bold mb-4 text-green-800">그린테크 함안 브랜드 핵심 요소</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                                        <span class="text-green-700 font-bold">1</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-green-700 mb-1">친환경 특화 산업 중심</h4>
+                                        <p class="text-sm text-gray-600">
+                                            재생에너지, 친환경 소재, 자원 순환 등 친환경 산업을 핵심 타겟 산업으로 설정하고 
+                                            관련 인프라 및 지원 체계 구축
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                                        <span class="text-green-700 font-bold">2</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-green-700 mb-1">차별화된 시각적 아이덴티티</h4>
+                                        <p class="text-sm text-gray-600">
+                                            그린테크 함안을 대표하는 로고, 컬러 시스템, 디자인 가이드라인을 개발하여 모든 
+                                            홍보물과 커뮤니케이션 채널에 일관되게 적용
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                                        <span class="text-green-700 font-bold">3</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-green-700 mb-1">통합 커뮤니케이션 전략</h4>
+                                        <p class="text-sm text-gray-600">
+                                            온/오프라인을 아우르는 통합 커뮤니케이션 전략을 수립하여 일관된 메시지로 
+                                            함안군의 브랜드 가치 전달
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full w-10 h-10 flex items-center justify-center mr-4">
+                                        <span class="text-green-700 font-bold">4</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-green-700 mb-1">지속가능성 성과 관리</h4>
+                                        <p class="text-sm text-gray-600">
+                                            함안군의 지속가능 발전 지표를 개발하고 정기적으로 성과를 측정하여 
+                                            브랜드 가치의 실질적 기반 마련
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-600">
+                            <h3 class="text-lg font-bold mb-3 text-green-800">브랜딩 추진 일정</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <div class="bg-green-200 text-green-800 px-2 py-1 rounded text-xs font-bold w-24 text-center mr-3">
+                                        2025년 하반기
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">브랜드 전략 수립 및 시각적 아이덴티티 개발</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-green-200 text-green-800 px-2 py-1 rounded text-xs font-bold w-24 text-center mr-3">
+                                        2026년 상반기
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">통합 커뮤니케이션 채널 구축 및 콘텐츠 개발</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-green-200 text-green-800 px-2 py-1 rounded text-xs font-bold w-24 text-center mr-3">
+                                        2026년 하반기
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">집중 마케팅 캠페인 전개 (가을철 관심도 활용)</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-green-200 text-green-800 px-2 py-1 rounded text-xs font-bold w-24 text-center mr-3">
+                                        2027년
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">브랜드 성과 측정 및 전략 고도화</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 원스톱 기업 유치 지원 섹션 -->
+        <section id="one-stop" class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2 order-2 md:order-1 fade-in">
+                        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                            <h3 class="text-xl font-bold mb-4 text-purple-800">원스톱 지원 프로세스</h3>
+                            
+                            <div class="relative">
+                                <!-- 타임라인 선 -->
+                                <div class="absolute left-5 top-0 h-full w-0.5 bg-purple-200"></div>
+                                
+                                <div class="space-y-8">
+                                    <div class="flex">
+                                        <div class="relative z-10">
+                                            <div class="bg-purple-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">1</div>
+                                        </div>
+                                        <div class="ml-6">
+                                            <h4 class="font-bold text-purple-700 mb-1">초기 상담 및 투자 컨설팅</h4>
+                                            <p class="text-sm text-gray-600">
+                                                투자 희망 기업의 니즈 파악 및 맞춤형 투자 방안 제시,
+                                                전담 매니저 지정 및 투자 계획 수립 지원
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex">
+                                        <div class="relative z-10">
+                                            <div class="bg-purple-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">2</div>
+                                        </div>
+                                        <div class="ml-6">
+                                            <h4 class="font-bold text-purple-700 mb-1">행정 절차 원스톱 처리</h4>
+                                            <p class="text-sm text-gray-600">
+                                                인허가, 용지 확보, 건축 관련 행정 절차 통합 지원,
+                                                관련 부서 협업 체계 구축으로 신속 처리
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex">
+                                        <div class="relative z-10">
+                                            <div class="bg-purple-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">3</div>
+                                        </div>
+                                        <div class="ml-6">
+                                            <h4 class="font-bold text-purple-700 mb-1">인프라 및 인센티브 지원</h4>
+                                            <p class="text-sm text-gray-600">
+                                                맞춤형 인센티브 패키지 설계 및 제공,
+                                                기반 시설 및 물류 인프라 우선 지원
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex">
+                                        <div class="relative z-10">
+                                            <div class="bg-purple-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold">4</div>
+                                        </div>
+                                        <div class="ml-6">
+                                            <h4 class="font-bold text-purple-700 mb-1">투자 이행 및 정착 지원</h4>
+                                            <p class="text-sm text-gray-600">
+                                                투자 계획 이행 지원 및 모니터링,
+                                                안정적 운영을 위한 지속적 지원 체계 유지
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-5 rounded-lg">
+                            <h3 class="text-lg font-bold mb-3 text-purple-800">투자 유치 패스트트랙 운영</h3>
+                            <p class="text-sm mb-4">
+                                대규모 투자 프로젝트(300억 이상)를 위한 특별 패스트트랙을 운영하여 처리 기간을 
+                                일반 절차 대비 50% 이상 단축합니다.
+                            </p>
+                            <div class="bg-white p-3 rounded-lg">
+                                <h4 class="font-bold text-purple-700 mb-2 text-sm">패스트트랙 주요 특징</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-purple-600 mt-1 mr-2"></i>
+                                        <p>군수 직속 투자 유치 특별 TF팀 직접 처리</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-purple-600 mt-1 mr-2"></i>
+                                        <p>인허가 관련 부서 합동 심의 진행</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-purple-600 mt-1 mr-2"></i>
+                                        <p>주 1회 이상 진행상황 모니터링 및 조정</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-purple-600 mt-1 mr-2"></i>
+                                        <p>전담 공무원 배정 및 24시간 핫라인 운영</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 order-1 md:order-2 fade-in">
+                        <h2 class="text-2xl font-bold mb-6 section-title text-purple-800">원스톱 기업 유치 지원</h2>
+                        <p class="mb-4">
+                            함안군은 기업 투자 결정부터 정착까지 전 과정을 지원하는 원스톱 기업 유치 지원 시스템인 
+                            "함안 비즈니스 익스프레스"를 구축합니다. 이를 통해 행정 절차를 간소화하고 
+                            기업의 부담을 최소화하여 투자 유치를 활성화합니다.
+                        </p>
+                        
+                        <div class="space-y-4 mt-6">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-purple-800 mb-2 flex items-center">
+                                    <i class="fas fa-users-cog text-purple-600 mr-2"></i> 기업 투자 전담 TF팀 운영
+                                </h3>
+                                <p class="text-sm">
+                                    군수 직속 기업 유치 전담팀을 설치하여 투자 유치부터 정착까지 원스톱 서비스를 제공하고, 
+                                    전문 인력을 배치하여 투자 기업의 니즈에 신속하게 대응
+                                </p>
+                                <div class="mt-2 text-xs text-gray-600">
+                                    <span class="bg-purple-100 rounded-full px-2 py-1">전담팀 5명 이상 구성</span>
+                                    <span class="bg-purple-100 rounded-full px-2 py-1 ml-1">전문 인력 채용</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-purple-800 mb-2 flex items-center">
+                                    <i class="fas fa-file-signature text-purple-600 mr-2"></i> 인허가 간소화 창구 운영
+                                </h3>
+                                <p class="text-sm">
+                                    인허가 관련 행정 절차를 간소화하고 신속하게 처리하는 특별 지원 창구를 개설하여 
+                                    기업의 행정 부담을 최소화하고 투자 계획 실행 기간 단축
+                                </p>
+                                <div class="mt-2 text-xs text-gray-600">
+                                    <span class="bg-purple-100 rounded-full px-2 py-1">행정 절차 40% 단축</span>
+                                    <span class="bg-purple-100 rounded-full px-2 py-1 ml-1">통합 심의 진행</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-purple-800 mb-2 flex items-center">
+                                    <i class="fas fa-handshake text-purple-600 mr-2"></i> 투자-정착 전 과정 밀착 지원
+                                </h3>
+                                <p class="text-sm">
+                                    투자 검토 단계부터 정착 후 안정화 단계까지 전 과정을 밀착 지원하는 시스템을 구축하여 
+                                    기업이 함안군에 성공적으로 정착할 수 있도록 지원
+                                </p>
+                                <div class="mt-2 text-xs text-gray-600">
+                                    <span class="bg-purple-100 rounded-full px-2 py-1">전담 매니저 지정</span>
+                                    <span class="bg-purple-100 rounded-full px-2 py-1 ml-1">정기 모니터링</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-purple-800 mb-2 flex items-center">
+                                    <i class="fas fa-calendar-check text-purple-600 mr-2"></i> 계절적 집중 처리제 도입
+                                </h3>
+                                <p class="text-sm">
+                                    검색 관심도가 높은 봄철(3-5월)과 가을철(9-10월)에 투자 심사 및 승인 업무를 집중적으로 
+                                    처리하는 계절적 집중 처리제를 도입하여 효율성 향상
+                                </p>
+                                <div class="mt-2 text-xs text-gray-600">
+                                    <span class="bg-purple-100 rounded-full px-2 py-1">봄/가을 집중 심사</span>
+                                    <span class="bg-purple-100 rounded-full px-2 py-1 ml-1">신속 처리 기간 운영</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 융합 산업 클러스터 섹션 -->
+        <section id="cluster" class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-8 section-title text-yellow-800 fade-in">융합 산업 클러스터</h2>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8 fade-in">
+                    <p class="mb-6">
+                        함안군은 창원(기계산업), 김해(부품소재), 진주(항공) 등 인근 도시들과 연계한 융합 산업 클러스터를 
+                        조성하여 지역 산업 간 시너지를 창출하고 특화된 산업 생태계를 구축합니다. 이를 통해 함안군만의 
+                        경쟁력을 확보하고 지속가능한 산업 발전을 이끌어냅니다.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-yellow-800 mb-2 flex items-center">
+                                <i class="fas fa-link text-yellow-600 mr-2"></i> 연계 산업 육성
+                            </h3>
+                            <p class="text-sm">
+                                창원의 기계산업, 김해의 부품소재 산업, 진주의 항공산업 등 주변 도시의 특화 산업과 연계되는 
+                                보완적 산업을 집중 육성하여 광역 산업 생태계 구축
+                            </p>
+                            <div class="mt-3 space-y-1">
+                                <div class="flex items-center">
+                                    <span class="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
+                                    <p class="text-xs">창원 연계: 기계부품 정밀가공, 스마트팩토리 솔루션</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+                                    <p class="text-xs">김해 연계: 고성능 소재, 친환경 부품 소재</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-3 h-3 rounded-full bg-purple-500 mr-2"></span>
+                                    <p class="text-xs">진주 연계: 항공기 부품 소재, 복합소재 개발</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-yellow-800 mb-2 flex items-center">
+                                <i class="fas fa-truck-moving text-yellow-600 mr-2"></i> 물류 최적화 인프라
+                            </h3>
+                            <p class="text-sm">
+                                함안군의 지리적 이점을 활용한 물류 인프라를 구축하여 부품 및 소재의 공급망을 최적화하고,
+                                주변 산업단지와의 물류 연계성 강화
+                            </p>
+                            <div class="mt-3 space-y-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-yellow-600 mr-2"></i>
+                                    <p class="text-xs">통합 물류 센터 구축 (2026년 상반기)</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-yellow-600 mr-2"></i>
+                                    <p class="text-xs">산업단지 간 셔틀 물류 시스템 운영</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-yellow-600 mr-2"></i>
+                                    <p class="text-xs">스마트 물류 관리 시스템 도입</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-yellow-800 mb-2 flex items-center">
+                                <i class="fas fa-sitemap text-yellow-600 mr-2"></i> 맞춤형 특화 업종 선정
+                            </h3>
+                            <p class="text-sm">
+                                주변 도시 산업과의 시너지를 극대화할 수 있는 특화 업종을 선정하고 집중 유치하여
+                                함안군만의 차별화된 산업 클러스터 구축
+                            </p>
+                            <div class="mt-3">
+                                <h4 class="font-medium text-yellow-700 text-xs mb-1">우선 유치 대상 업종</h4>
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded">환경 친화적 부품 제조</div>
+                                    <div class="bg-white p-2 rounded">스마트 모빌리티 부품</div>
+                                    <div class="bg-white p-2 rounded">첨단 복합소재 개발</div>
+                                    <div class="bg-white p-2 rounded">차세대 배터리 부품</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-yellow-800 mb-2 flex items-center">
+                                <i class="fas fa-building text-yellow-600 mr-2"></i> 산학연 협력 네트워크
+                            </h3>
+                            <p class="text-sm">
+                                인근 도시의 대학, 연구소와 연계한 협력 네트워크를 구축하여 연구개발, 인력 양성,
+                                기술 교류 등 다양한 협력 사업 추진
+                            </p>
+                            <div class="mt-3">
+                                <h4 class="font-medium text-yellow-700 text-xs mb-1">주요 협력 기관</h4>
+                                <div class="flex flex-wrap gap-2 text-xs">
+                                    <div class="bg-white p-1 px-2 rounded">경상대학교</div>
+                                    <div class="bg-white p-1 px-2 rounded">창원대학교</div>
+                                    <div class="bg-white p-1 px-2 rounded">한국기계연구원</div>
+                                    <div class="bg-white p-1 px-2 rounded">한국전기연구원</div>
+                                    <div class="bg-white p-1 px-2 rounded">경남TP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-5 rounded-lg shadow-md fade-in">
+                        <h3 class="text-lg font-bold mb-3 text-yellow-800 flex items-center">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mr-2"></i> 거점 별 특화 기능
+                        </h3>
+                        <img src="img/cluster.jpg" alt="함안 융합 산업 클러스터 지도" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-start">
+                                <i class="fas fa-circle text-yellow-500 text-xs mt-1 mr-2"></i>
+                                <div>
+                                    <p class="font-medium">북부 거점 (창원 인접)</p>
+                                    <p class="text-xs text-gray-600">스마트 기계부품 생산 및 공급 거점</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-circle text-yellow-500 text-xs mt-1 mr-2"></i>
+                                <div>
+                                    <p class="font-medium">중앙 거점 (물류 중심)</p>
+                                    <p class="text-xs text-gray-600">통합 물류 및 유통 중심지</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-circle text-yellow-500 text-xs mt-1 mr-2"></i>
+                                <div>
+                                    <p class="font-medium">남부 거점 (진주 인접)</p>
+                                    <p class="text-xs text-gray-600">첨단 소재 및 부품 연구 개발 거점</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow-md fade-in">
+                        <h3 class="text-lg font-bold mb-3 text-yellow-800 flex items-center">
+                            <i class="fas fa-project-diagram text-yellow-500 mr-2"></i> 클러스터 추진 계획
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="border-l-4 border-yellow-500 pl-3">
+                                <p class="font-medium text-sm">1단계: 기반 구축 (2025-2026)</p>
+                                <ul class="text-xs text-gray-600 space-y-1 mt-1">
+                                    <li>• 클러스터 마스터플랜 수립</li>
+                                    <li>• 기반 인프라 구축 착수</li>
+                                    <li>• 중점 유치 업종 선정 및 홍보</li>
+                                </ul>
+                            </div>
+                            <div class="border-l-4 border-yellow-400 pl-3">
+                                <p class="font-medium text-sm">2단계: 기업 유치 (2026-2027)</p>
+                                <ul class="text-xs text-gray-600 space-y-1 mt-1">
+                                    <li>• 앵커 기업 10개 이상 유치</li>
+                                    <li>• 연관 기업 30개 이상 유치</li>
+                                    <li>• 협력 네트워크 구축 완료</li>
+                                </ul>
+                            </div>
+                            <div class="border-l-4 border-yellow-300 pl-3">
+                                <p class="font-medium text-sm">3단계: 고도화 (2028-)</p>
+                                <ul class="text-xs text-gray-600 space-y-1 mt-1">
+                                    <li>• 클러스터 확장 및 기능 강화</li>
+                                    <li>• 글로벌 기업 유치</li>
+                                    <li>• 전문 연구기관 유치</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow-md fade-in">
+                        <h3 class="text-lg font-bold mb-3 text-yellow-800 flex items-center">
+                            <i class="fas fa-chart-line text-yellow-500 mr-2"></i> 기대 성과
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-medium">기업 유치 목표</p>
+                                    <p class="text-sm font-medium">100개+</p>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                                    <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-medium">일자리 창출</p>
+                                    <p class="text-sm font-medium">5,000명+</p>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                                    <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-medium">생산 유발 효과</p>
+                                    <p class="text-sm font-medium">1조원+</p>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                                    <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-medium">산학연 협력 과제</p>
+                                    <p class="text-sm font-medium">50개+</p>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                                    <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 fade-in">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-800">융합 산업 클러스터 추진 단계</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white rounded-lg">
+                            <thead>
+                                <tr class="bg-yellow-100">
+                                    <th class="py-3 px-4 text-left text-sm font-medium">추진 단계</th>
+                                    <th class="py-3 px-4 text-left text-sm font-medium">주요 내용</th>
+                                    <th class="py-3 px-4 text-left text-sm font-medium">추진 시기</th>
+                                    <th class="py-3 px-4 text-left text-sm font-medium">담당 기관</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-3 px-4 text-sm">기획 및 설계</td>
+                                    <td class="py-3 px-4 text-sm">클러스터 기본계획 수립<br>주변 도시와의 연계 방안 마련</td>
+                                    <td class="py-3 px-4 text-sm">2025년 하반기</td>
+                                    <td class="py-3 px-4 text-sm">함안군 기획예산담당관실</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 text-sm">기반 구축</td>
+                                    <td class="py-3 px-4 text-sm">물류 인프라 구축<br>앵커 기업 유치 전략 수립</td>
+                                    <td class="py-3 px-4 text-sm">2026년 상반기</td>
+                                    <td class="py-3 px-4 text-sm">함안군 산업단지관리팀</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 text-sm">기업 유치</td>
+                                    <td class="py-3 px-4 text-sm">앵커 기업 유치<br>연관 기업 집중 유치</td>
+                                    <td class="py-3 px-4 text-sm">2026-2027년</td>
+                                    <td class="py-3 px-4 text-sm">함안군 투자유치TF팀</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 text-sm">네트워크 구축</td>
+                                    <td class="py-3 px-4 text-sm">산학연 협력 체계 구축<br>기업 간 협력 네트워크 형성</td>
+                                    <td class="py-3 px-4 text-sm">2027년</td>
+                                    <td class="py-3 px-4 text-sm">함안군 산업협력팀</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 text-sm">고도화</td>
+                                    <td class="py-3 px-4 text-sm">클러스터 확장 및 기능 강화<br>글로벌 기업 유치</td>
+                                    <td class="py-3 px-4 text-sm">2028년 이후</td>
+                                    <td class="py-3 px-4 text-sm">함안군 전체</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA 섹션 -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-700 p-8 rounded-lg text-white text-center fade-in">
+                    <h3 class="text-2xl font-bold mb-4">함께 만들어갑니다</h3>
+                    <p class="mb-6">
+                        함안 투자 5·5·5 프로그램과 추가 개선 방안을 통해 함안군의 산업 경쟁력을 강화하고<br>
+                        새로운 성장 동력을 창출하기 위한 여정에 함께해 주세요.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="effects.html" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition inline-block">
+                            기대효과 살펴보기
+                        </a>
+                        <a href="roadmap.html" class="border border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600 transition inline-block">
+                            실행 로드맵 확인하기
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center fade-in">
+                    <h3 class="text-2xl font-bold mb-6">의견을 들려주세요</h3>
+                    <p class="mb-6 text-gray-600">
+                        함안군의 기업 유치 및 산업 경쟁력 강화를 위한 소중한 의견을 남겨주세요.<br>
+                        여러분의 아이디어가 함안군의 미래를 만들어갑니다.
+                    </p>
+                    <a href="index.html#contact" class="bg-blue-100 text-blue-800 px-8 py-3 rounded-lg font-medium hover:bg-blue-200 transition inline-block">
+                        <i class="fas fa-paper-plane mr-2"></i> 의견 제출하기
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <img src="img/logo.png" alt="함안군 로고" class="h-10 mr-3">
+                        <div>
+                            <h3 class="text-lg font-bold">함안군</h3>
+                            <p class="text-xs text-gray-400">함안 투자 5·5·5 프로그램</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        (52043) 경상남도 함안군 가야읍 말산로 1<br>
+                        대표전화: 055-580-2025
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">프로그램 안내</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="investment-package.html" class="hover:text-white">투자 패키지</a></li>
+                            <li><a href="tax-reduction.html" class="hover:text-white">세금 감면</a></li>
+                            <li><a href="support-benefits.html" class="hover:text-white">지원 혜택</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">추가 정보</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="improvement.html" class="hover:text-white">개선 방안</a></li>
+                            <li><a href="effects.html" class="hover:text-white">기대효과</a></li>
+                            <li><a href="roadmap.html" class="hover:text-white">로드맵</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">관련 링크</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="https://www.haman.go.kr" target="_blank" class="hover:text-white">함안군청</a></li>
+                            <li><a href="#" class="hover:text-white">정책 제안 공모</a></li>
+                            <li><a href="index.html#contact" class="hover:text-white">문의하기</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-500 mb-4 md:mb-0">© 2025 함안군. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>
