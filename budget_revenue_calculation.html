@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예산절감 및 군세·세외수입 증대액 산출내역서 - 함안 투자 5·5·5 프로그램</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <style>
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .table-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #3B82F6;
+        }
+        .chart-container {
+            margin: 30px auto;
+            margin-bottom: 32px; /* 원하는 간격(px 단위)으로 조절 */
+            height: 300px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #e6f2ff !important;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .summary-box {
+            background-color: #f0f7ff;
+            border-left: 5px solid #3B82F6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        .conclusion {
+            background-color: #e6f2ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 네비게이션 헤더 -->
+    <header class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="img/logo.png" alt="함안군 로고" class="h-12 mr-3">
+                    <div>
+                        <h1 class="text-xl font-bold text-blue-800">함안 투자 5·5·5 프로그램</h1>
+                        <p class="text-sm text-gray-600">맞춤형 투자 인센티브 패키지</p>
+                    </div>
+                </div>
+                
+                <!-- 데스크톱 메뉴 -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-600 font-medium hover:text-blue-600 transition">홈</a>
+                    <a href="investment-package.html" class="text-gray-600 font-medium hover:text-blue-600 transition">투자 패키지</a>
+                    <a href="tax-reduction.html" class="text-gray-600 font-medium hover:text-blue-600 transition">세금 감면</a>
+                    <a href="support-benefits.html" class="text-gray-600 font-medium hover:text-blue-600 transition">지원 혜택</a>
+                    <a href="improvement.html" class="text-gray-600 font-medium hover:text-blue-600 transition">개선 방안</a>
+                    <a href="effects.html" class="text-gray-600 font-medium hover:text-blue-600 transition">기대효과</a>
+                    <a href="roadmap.html" class="text-gray-600 font-medium hover:text-blue-600 transition">로드맵</a>
+                    <a href="trend_report.html" class="text-gray-600 font-medium hover:text-blue-600 transition">트렌드 분석</a>
+                    <a href="budget_revenue_calculation.html" class="text-blue-800 font-medium hover:text-blue-600 transition">예산 산출내역</a>
+                </nav>
+                
+                <!-- 모바일 메뉴 토글 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 모바일 메뉴 -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
+                <a href="index.html" class="block py-2 text-gray-600 font-medium">홈</a>
+                <a href="investment-package.html" class="block py-2 text-gray-600 font-medium">투자 패키지</a>
+                <a href="tax-reduction.html" class="block py-2 text-gray-600 font-medium">세금 감면</a>
+                <a href="support-benefits.html" class="block py-2 text-gray-600 font-medium">지원 혜택</a>
+                <a href="improvement.html" class="block py-2 text-gray-600 font-medium">개선 방안</a>
+                <a href="effects.html" class="block py-2 text-gray-600 font-medium">기대효과</a>
+                <a href="roadmap.html" class="block py-2 text-gray-600 font-medium">로드맵</a>
+                <a href="trend_report.html" class="block py-2 text-gray-600 font-medium">트렌드 분석</a>
+                <a href="budget_revenue_calculation.html" class="block py-2 text-blue-800 font-medium">예산 산출내역</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="pt-24">
+        <!-- 헤더 섹션 -->
+        <section class="bg-gradient-to-r from-blue-800 to-blue-600 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-4 fade-in">예산절감 및 군세·세외수입 증대액 산출내역서</h2>
+                    <p class="text-xl mb-6 fade-in">함안 투자 5·5·5 프로그램의 경제적 영향 분석</p>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg inline-block fade-in">
+                        <p class="font-medium">10년간 약 <span class="text-yellow-300 font-bold">234억원</span>의 순이익 예상</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 py-8">
+            <!-- 사업 개요 섹션 -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 section-title fade-in">1. 사업 개요</h3>
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold">사업명:</span> 맞춤형 투자 인센티브 패키지 - "함안 투자 5·5·5 프로그램"
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold">사업 기간:</span> 2025년 하반기 ~ 2030년 (5개년 계획)
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold">사업 내용:</span> 투자 규모별 5단계 세금 감면, 5년간 단계적 감면율 적용, 5가지 핵심 지원 혜택 제공
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 초기 예산 투입 섹션 -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 section-title fade-in">2. 초기 예산 투입 및 세입 감소 추정</h3>
+                
+                <h4 class="text-xl font-semibold mb-4 text-blue-700 fade-in">2.1 초기 예산 투입 (2025년 하반기 ~ 2026년)</h4>
+                <div class="table-container mb-8 fade-in">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-6 py-3 bg-blue-700 text-white text-left">항목</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white text-center">금액(백만원)</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white text-left">산출 근거</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-6 py-3">제도 구축 및 조례 제정</td>
+                                <td class="px-6 py-3 text-center">50</td>
+                                <td class="px-6 py-3">법률 검토, 연구용역, 공청회 등</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-3">기업 유치 TF팀 운영</td>
+                                <td class="px-6 py-3 text-center">300</td>
+                                <td class="px-6 py-3">인건비(5명×60백만원), 운영비</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-3">홍보 및 마케팅 비용</td>
+                                <td class="px-6 py-3 text-center">200</td>
+                                <td class="px-6 py-3">브랜딩, 홍보물 제작, 투자 설명회 등</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-3">원스톱 기업 지원센터 설립</td>
+                                <td class="px-6 py-3 text-center">500</td>
+                                <td class="px-6 py-3">시설 구축, 장비, 운영 시스템 등</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-3">인센티브 기금 조성</td>
+                                <td class="px-6 py-3 text-center">5,000</td>
+                                <td class="px-6 py-3">기업 유치 인센티브 지원 기금</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td class="px-6 py-3 font-bold">초기 투입 예산 합계</td>
+                                <td class="px-6 py-3 text-center font-bold">6,050</td>
+                                <td class="px-6 py-3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="text-xl font-semibold mb-4 text-blue-700 fade-in">2.2 세금 감면으로 인한 세입 감소 추정 (연간)</h4>
+                <div class="table-container mb-4 fade-in">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-6 py-3 bg-blue-700 text-white">투자 규모</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white">예상 기업 수</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white">기업당 평균 감면액(백만원)</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white">총 감면액(백만원)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-6 py-3 text-center">5억-50억 미만</td>
+                                <td class="px-6 py-3 text-center">15</td>
+                                <td class="px-6 py-3 text-center">30</td>
+                                <td class="px-6 py-3 text-center">450</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-3 text-center">50억-100억 미만</td>
+                                <td class="px-6 py-3 text-center">8</td>
+                                <td class="px-6 py-3 text-center">80</td>
+                                <td class="px-6 py-3 text-center">640</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-3 text-center">100억-300억 미만</td>
+                                <td class="px-6 py-3 text-center">5</td>
+                                <td class="px-6 py-3 text-center">200</td>
+                                <td class="px-6 py-3 text-center">1,000</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-3 text-center">300억-500억 미만</td>
+                                <td class="px-6 py-3 text-center">2</td>
+                                <td class="px-6 py-3 text-center">500</td>
+                                <td class="px-6 py-3 text-center">1,000</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-3 text-center">500억 이상</td>
+                                <td class="px-6 py-3 text-center">1</td>
+                                <td class="px-6 py-3 text-center">1,000</td>
+                                <td class="px-6 py-3 text-center">1,000</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td class="px-6 py-3 text-center font-bold">연간 세입 감소 합계</td>
+                                <td class="px-6 py-3 text-center font-bold">31</td>
+                                <td class="px-6 py-3 text-center"></td>
+                                <td class="px-6 py-3 text-center font-bold">4,090</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="note fade-in">
+                    <ul class="space-y-1">
+                        <li>1-2년차(100% 감면): 연간 약 41억원 세입 감소</li>
+                        <li>3년차(80% 감면): 연간 약 33억원 세입 감소</li>
+                        <li>4년차(50% 감면): 연간 약 20억원 세입 감소</li>
+                        <li>5년차(30% 감면): 연간 약 12억원 세입 감소</li>
+                    </ul>
+                </div>
+
+                <div class="chart-container fade-in">
+                    <canvas id="taxReductionChart"></canvas>
+                </div>
+            </section>
+
+            <!-- 세입 증대 효과 섹션 -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 section-title fade-in">3. 세입 증대 효과 추정</h3>
+                
+                <h4 class="text-xl font-semibold mb-4 text-blue-700 fade-in">3.1 투자 유치로 인한 직접적 세입 증대 효과</h4>
+                
+                <h5 class="text-lg font-medium mb-3 text-blue-600 fade-in">3.1.1 단계적 세금 감면 종료 후 세입 증대</h5>
+                <div class="table-container mb-8 fade-in">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2 bg-blue-700 text-white">연도</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">감면 종료 기업 수</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">기업당 평균 세입(백만원)</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">연간 증대 세입(백만원)</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">누적 세입(백만원)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2027년</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2028년</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2029년</td>
+                                <td class="px-4 py-2 text-center">10</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">500</td>
+                                <td class="px-4 py-2 text-center">500</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2030년</td>
+                                <td class="px-4 py-2 text-center">20</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">1,000</td>
+                                <td class="px-4 py-2 text-center">1,500</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2031년</td>
+                                <td class="px-4 py-2 text-center">31</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">1,550</td>
+                                <td class="px-4 py-2 text-center">3,050</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2032년</td>
+                                <td class="px-4 py-2 text-center">40</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">2,000</td>
+                                <td class="px-4 py-2 text-center">5,050</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2033년</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">2,500</td>
+                                <td class="px-4 py-2 text-center">7,550</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2034년</td>
+                                <td class="px-4 py-2 text-center">60</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">3,000</td>
+                                <td class="px-4 py-2 text-center">10,550</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2035년</td>
+                                <td class="px-4 py-2 text-center">70</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">3,500</td>
+                                <td class="px-4 py-2 text-center">14,050</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="text-lg font-medium mb-3 text-blue-600 fade-in">3.1.2 신규 기업 유치로 인한 취득세 및 등록세 증대</h5>
+                <div class="table-container mb-8 fade-in">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2 bg-blue-700 text-white">연도</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">신규 유치 기업 수</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">평균 투자액(억원)</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">평균 취득세·등록세(백만원)</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">연간 증대 세입(백만원)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2026년</td>
+                                <td class="px-4 py-2 text-center">15</td>
+                                <td class="px-4 py-2 text-center">30</td>
+                                <td class="px-4 py-2 text-center">60</td>
+                                <td class="px-4 py-2 text-center">900</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2027년</td>
+                                <td class="px-4 py-2 text-center">20</td>
+                                <td class="px-4 py-2 text-center">40</td>
+                                <td class="px-4 py-2 text-center">80</td>
+                                <td class="px-4 py-2 text-center">1,600</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2028년</td>
+                                <td class="px-4 py-2 text-center">25</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">100</td>
+                                <td class="px-4 py-2 text-center">2,500</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2029년</td>
+                                <td class="px-4 py-2 text-center">20</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">100</td>
+                                <td class="px-4 py-2 text-center">2,000</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2030년</td>
+                                <td class="px-4 py-2 text-center">20</td>
+                                <td class="px-4 py-2 text-center">50</td>
+                                <td class="px-4 py-2 text-center">100</td>
+                                <td class="px-4 py-2 text-center">2,000</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td class="px-4 py-2 text-center font-bold">합계</td>
+                                <td class="px-4 py-2 text-center font-bold">100</td>
+                                <td class="px-4 py-2 text-center"></td>
+                                <td class="px-4 py-2 text-center"></td>
+                                <td class="px-4 py-2 text-center font-bold">9,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="text-xl font-semibold mb-4 text-blue-700 fade-in">3.2 간접적 세입 증대 효과</h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="fade-in">
+                        <h5 class="text-lg font-medium mb-3 text-blue-600">3.2.1 고용 창출로 인한 지방소득세 증대</h5>
+                        <div class="table-container">
+                            <table class="w-full">
+                                <thead>
+                                    <tr>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">연도</th>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">신규 고용(명)</th>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">1인당 평균 소득(만원)</th>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">지방소득세(백만원)</th>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">누적 세입(백만원)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="px-3 py-2 text-center">2026년</td>
+                                        <td class="px-3 py-2 text-center">500</td>
+                                        <td class="px-3 py-2 text-center">3,500</td>
+                                        <td class="px-3 py-2 text-center">175</td>
+                                        <td class="px-3 py-2 text-center">175</td>
+                                    </tr>
+                                    <tr class="border-b bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2027년</td>
+                                        <td class="px-3 py-2 text-center">1,000</td>
+                                        <td class="px-3 py-2 text-center">3,600</td>
+                                        <td class="px-3 py-2 text-center">360</td>
+                                        <td class="px-3 py-2 text-center">535</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="px-3 py-2 text-center">2028년</td>
+                                        <td class="px-3 py-2 text-center">1,500</td>
+                                        <td class="px-3 py-2 text-center">3,700</td>
+                                        <td class="px-3 py-2 text-center">555</td>
+                                        <td class="px-3 py-2 text-center">1,090</td>
+                                    </tr>
+                                    <tr class="border-b bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2029년</td>
+                                        <td class="px-3 py-2 text-center">1,000</td>
+                                        <td class="px-3 py-2 text-center">3,800</td>
+                                        <td class="px-3 py-2 text-center">380</td>
+                                        <td class="px-3 py-2 text-center">1,470</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="px-3 py-2 text-center">2030년</td>
+                                        <td class="px-3 py-2 text-center">1,000</td>
+                                        <td class="px-3 py-2 text-center">3,900</td>
+                                        <td class="px-3 py-2 text-center">390</td>
+                                        <td class="px-3 py-2 text-center">1,860</td>
+                                    </tr>
+                                    <tr class="total-row">
+                                        <td class="px-3 py-2 text-center font-bold">합계</td>
+                                        <td class="px-3 py-2 text-center font-bold">5,000</td>
+                                        <td class="px-3 py-2 text-center"></td>
+                                        <td class="px-3 py-2 text-center"></td>
+                                        <td class="px-3 py-2 text-center font-bold">1,860</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="note mt-2 text-sm">
+                            지방소득세 계산: 평균 소득 × 근로소득세율(평균 4%) × 지방소득세율(소득세의 10%)
+                        </div>
+                    </div>
+
+                    <div class="fade-in">
+                        <h5 class="text-lg font-medium mb-3 text-blue-600">3.2.2 인구 유입으로 인한 세입 증대</h5>
+                        <div class="table-container">
+                            <table class="w-full">
+                                <thead>
+                                    <tr>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">연도</th>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">인구 유입(명)</th>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">1인당 평균 세입(만원)</th>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">연간 증대 세입(백만원)</th>
+                                        <th class="px-3 py-2 bg-blue-700 text-white">누적 세입(백만원)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="px-3 py-2 text-center">2026년</td>
+                                        <td class="px-3 py-2 text-center">1,200</td>
+                                        <td class="px-3 py-2 text-center">20</td>
+                                        <td class="px-3 py-2 text-center">240</td>
+                                        <td class="px-3 py-2 text-center">240</td>
+                                    </tr>
+                                    <tr class="border-b bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2027년</td>
+                                        <td class="px-3 py-2 text-center">1,500</td>
+                                        <td class="px-3 py-2 text-center">20</td>
+                                        <td class="px-3 py-2 text-center">300</td>
+                                        <td class="px-3 py-2 text-center">540</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="px-3 py-2 text-center">2028년</td>
+                                        <td class="px-3 py-2 text-center">1,800</td>
+                                        <td class="px-3 py-2 text-center">20</td>
+                                        <td class="px-3 py-2 text-center">360</td>
+                                        <td class="px-3 py-2 text-center">900</td>
+                                    </tr>
+                                    <tr class="border-b bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2029년</td>
+                                        <td class="px-3 py-2 text-center">1,500</td>
+                                        <td class="px-3 py-2 text-center">20</td>
+                                        <td class="px-3 py-2 text-center">300</td>
+                                        <td class="px-3 py-2 text-center">1,200</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="px-3 py-2 text-center">2030년</td>
+                                        <td class="px-3 py-2 text-center">1,500</td>
+                                        <td class="px-3 py-2 text-center">20</td>
+                                        <td class="px-3 py-2 text-center">300</td>
+                                        <td class="px-3 py-2 text-center">1,500</td>
+                                    </tr>
+                                    <tr class="total-row">
+                                        <td class="px-3 py-2 text-center font-bold">합계</td>
+                                        <td class="px-3 py-2 text-center font-bold">7,500</td>
+                                        <td class="px-3 py-2 text-center"></td>
+                                        <td class="px-3 py-2 text-center"></td>
+                                        <td class="px-3 py-2 text-center font-bold">1,500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="note mt-2 text-sm">
+                            1인당 평균 세입: 지방세, 세외수입 등 함안군 인구 1인당 연평균 세입액
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="text-lg font-medium mb-3 text-blue-600 fade-in">3.2.3 지역 경제 활성화로 인한 기타 세입 증대</h5>
+                <div class="table-container mb-4 fade-in">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-6 py-3 bg-blue-700 text-white">항목</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white">연간 증대 세입(백만원)</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white">5년 누적(백만원)</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white">산출 근거</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-6 py-3">지역 내 소비 증가</td>
+                                <td class="px-6 py-3 text-center">300</td>
+                                <td class="px-6 py-3 text-center">1,500</td>
+                                <td class="px-6 py-3">음식점, 소매점 등 지역 내 소비 증가로 인한 세수</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-3">서비스업 활성화</td>
+                                <td class="px-6 py-3 text-center">200</td>
+                                <td class="px-6 py-3 text-center">1,000</td>
+                                <td class="px-6 py-3">숙박, 서비스 등 관련 산업 세수</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-3">부동산 가치 상승</td>
+                                <td class="px-6 py-3 text-center">250</td>
+                                <td class="px-6 py-3 text-center">1,250</td>
+                                <td class="px-6 py-3">재산세, 거래세 등 증가</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-3">물류 및 유통 활성화</td>
+                                <td class="px-6 py-3 text-center">150</td>
+                                <td class="px-6 py-3 text-center">750</td>
+                                <td class="px-6 py-3">물류, 유통 관련 세수 증가</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td class="px-6 py-3 font-bold">합계</td>
+                                <td class="px-6 py-3 text-center font-bold">900</td>
+                                <td class="px-6 py-3 text-center font-bold">4,500</td>
+                                <td class="px-6 py-3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="chart-container fade-in">
+                    <canvas id="revenueGrowthChart"></canvas>
+                </div>
+            </section>
+
+            <!-- 재정적 효과 종합 분석 섹션 -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 section-title fade-in">4. 재정적 효과 종합 분석</h3>
+                
+                <h4 class="text-xl font-semibold mb-4 text-blue-700 fade-in">4.1 10년간 누적 재정 효과 분석 (단위: 백만원)</h4>
+                <div class="table-container mb-6 fade-in">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2 bg-blue-700 text-white">연도</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">투입 예산</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">세입 감소</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">세입 증대</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">순 재정 효과</th>
+                                <th class="px-4 py-2 bg-blue-700 text-white">누적 효과</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2025년</td>
+                                <td class="px-4 py-2 text-center">2,050</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">-2,050</td>
+                                <td class="px-4 py-2 text-center">-2,050</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2026년</td>
+                                <td class="px-4 py-2 text-center">4,000</td>
+                                <td class="px-4 py-2 text-center">4,090</td>
+                                <td class="px-4 py-2 text-center">1,315</td>
+                                <td class="px-4 py-2 text-center">-6,775</td>
+                                <td class="px-4 py-2 text-center">-8,825</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2027년</td>
+                                <td class="px-4 py-2 text-center">1,000</td>
+                                <td class="px-4 py-2 text-center">4,090</td>
+                                <td class="px-4 py-2 text-center">2,260</td>
+                                <td class="px-4 py-2 text-center">-2,830</td>
+                                <td class="px-4 py-2 text-center">-11,655</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2028년</td>
+                                <td class="px-4 py-2 text-center">1,000</td>
+                                <td class="px-4 py-2 text-center">4,090</td>
+                                <td class="px-4 py-2 text-center">3,415</td>
+                                <td class="px-4 py-2 text-center">-1,675</td>
+                                <td class="px-4 py-2 text-center">-13,330</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2029년</td>
+                                <td class="px-4 py-2 text-center">1,000</td>
+                                <td class="px-4 py-2 text-center">3,272</td>
+                                <td class="px-4 py-2 text-center">3,680</td>
+                                <td class="px-4 py-2 text-center">-592</td>
+                                <td class="px-4 py-2 text-center">-13,922</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2030년</td>
+                                <td class="px-4 py-2 text-center">1,000</td>
+                                <td class="px-4 py-2 text-center">2,045</td>
+                                <td class="px-4 py-2 text-center">5,190</td>
+                                <td class="px-4 py-2 text-center">2,145</td>
+                                <td class="px-4 py-2 text-center">-11,777</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2031년</td>
+                                <td class="px-4 py-2 text-center">500</td>
+                                <td class="px-4 py-2 text-center">1,227</td>
+                                <td class="px-4 py-2 text-center">6,340</td>
+                                <td class="px-4 py-2 text-center">4,613</td>
+                                <td class="px-4 py-2 text-center">-7,164</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2032년</td>
+                                <td class="px-4 py-2 text-center">500</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">7,400</td>
+                                <td class="px-4 py-2 text-center">6,900</td>
+                                <td class="px-4 py-2 text-center">-264</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2033년</td>
+                                <td class="px-4 py-2 text-center">500</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">7,900</td>
+                                <td class="px-4 py-2 text-center">7,400</td>
+                                <td class="px-4 py-2 text-center">7,136</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-4 py-2 text-center">2034년</td>
+                                <td class="px-4 py-2 text-center">500</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">8,400</td>
+                                <td class="px-4 py-2 text-center">7,900</td>
+                                <td class="px-4 py-2 text-center">15,036</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-center">2035년</td>
+                                <td class="px-4 py-2 text-center">500</td>
+                                <td class="px-4 py-2 text-center">0</td>
+                                <td class="px-4 py-2 text-center">8,900</td>
+                                <td class="px-4 py-2 text-center">8,400</td>
+                                <td class="px-4 py-2 text-center">23,436</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="chart-container fade-in">
+                    <canvas id="fiscalEffectChart"></canvas>
+                </div>
+
+                <h4 class="text-xl font-semibold mb-4 text-blue-700 fade-in">4.2 비용 편익 분석</h4>
+                <div class="summary-box fade-in">
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-blue-600 text-xs mr-2"></i>
+                            <span><strong>총 투입 비용(10년):</strong> 약 126억원</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-blue-600 text-xs mr-2"></i>
+                            <span><strong>총 세입 감소(5년):</strong> 약 187억원</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-blue-600 text-xs mr-2"></i>
+                            <span><strong>총 세입 증대(10년):</strong> 약 548억원</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-blue-600 text-xs mr-2"></i>
+                            <span><strong>순 재정 효과(10년):</strong> 약 234억원 흑자</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-blue-600 text-xs mr-2"></i>
+                            <span><strong>손익분기점:</strong> 2032년(사업 시작 후 약 7년)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="chart-container fade-in">
+                    <canvas id="breakEvenChart"></canvas>
+                </div>
+            </section>
+
+            <!-- 기타 경제적 효과 섹션 -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 section-title fade-in">5. 기타 경제적 효과 (금액화하기 어려운 효과)</h3>
+                <div class="table-container fade-in">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-6 py-3 bg-blue-700 text-white">항목</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white">예상 효과</th>
+                                <th class="px-6 py-3 bg-blue-700 text-white">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-6 py-3">지역 브랜드 가치 상승</td>
+                                <td class="px-6 py-3">지역 이미지 개선 및 인지도 향상</td>
+                                <td class="px-6 py-3">장기적 투자 유치 선순환 효과</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-3">산업 구조 고도화</td>
+                                <td class="px-6 py-3">고부가가치 산업 비중 증가</td>
+                                <td class="px-6 py-3">지역 경제 체질 개선</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-3">일자리 질 향상</td>
+                                <td class="px-6 py-3">양질의 일자리 확대</td>
+                                <td class="px-6 py-3">지역 인재 정착 및 유입</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-3">지역 균형 발전</td>
+                                <td class="px-6 py-3">도농 격차 해소</td>
+                                <td class="px-6 py-3">지역 내 균형발전 도모</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-3">인접 지역과의 상생 발전</td>
+                                <td class="px-6 py-3">광역 경제권 활성화</td>
+                                <td class="px-6 py-3">창원, 김해, 진주 등과의 상생</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 결론 섹션 -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 section-title fade-in">6. 결론</h3>
+                <div class="conclusion fade-in">
+                    <p class="mb-4">"함안 투자 5·5·5 프로그램" 시행은 초기 6-7년간 약 139억원의 재정 투입 및 세입 감소가 예상되나, 이후 기업 성장 및 지역 경제 활성화로 인한 세입 증대 효과가 본격화되어 사업 시작 후 7년차에 손익분기점에 도달할 것으로 전망됩니다. 10년간 누적 효과는 약 234억원의 순이익이 예상되며, 이는 초기 투자 대비 약 1.86배의 수익률에 해당합니다.</p>
+                    
+                    <p>또한 금액으로 환산하기 어려운 지역 브랜드 가치 상승, 산업 구조 고도화, 일자리 질 향상 등의 부가적 효과를 고려할 때, 본 사업의 경제적·사회적 효과는 더욱 클 것으로 예상됩니다.</p>
+                </div>
+            </section>
+
+            <!-- CTA 섹션 -->
+            <div class="text-center pb-8 fade-in">
+                <a href="index.html" class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition">
+                    함안 투자 5·5·5 프로그램 자세히 보기
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <img src="img/logo.png" alt="함안군 로고" class="h-10 mr-3">
+                        <div>
+                            <h3 class="text-lg font-bold">함안군</h3>
+                            <p class="text-xs text-gray-400">함안 투자 5·5·5 프로그램</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        (52043) 경상남도 함안군 가야읍 말산로 1<br>
+                        TEL: 055-580-2025 | FAX: 055-580-2559<br>
+                        Email: junsugwo@korea.kr
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">프로그램 안내</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="investment-package.html" class="hover:text-white">투자 패키지</a></li>
+                            <li><a href="tax-reduction.html" class="hover:text-white">세금 감면</a></li>
+                            <li><a href="support-benefits.html" class="hover:text-white">지원 혜택</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">추가 정보</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="improvement.html" class="hover:text-white">개선 방안</a></li>
+                            <li><a href="effects.html" class="hover:text-white">기대효과</a></li>
+                            <li><a href="roadmap.html" class="hover:text-white">로드맵</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-sm font-bold mb-4">관련 링크</h4>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a href="https://www.haman.go.kr" target="_blank" class="hover:text-white">함안군청</a></li>
+                            <li><a href="#" class="hover:text-white">정책 제안 공모</a></li>
+                            <li><a href="budget_revenue_calculation.html" class="hover:text-white">예산 산출내역</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-500 mb-4 md:mb-0">© 2025 함안군. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 스크립트 -->
+    <script src="main.js"></script>
+    <script src="budget_charts.js"></script>
+</body>
+</html>
